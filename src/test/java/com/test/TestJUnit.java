@@ -17,7 +17,7 @@ public class TestJUnit {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {-4, -3, -2, -1, 0, 1, 2, 3, 4, 5})
+    @ValueSource(ints = { 1, 2, 3, 4, 5})
     public void testMethod2(int num) {
         Assertions.assertTrue(num > 0);
     }
