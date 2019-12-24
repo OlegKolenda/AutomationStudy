@@ -1,5 +1,6 @@
 package com.test;
 
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
@@ -11,17 +12,29 @@ import java.util.List;
 import java.util.Set;
 
 public class AutomationStudy_2 {
-    public static void main(String[] args) {
+
+    private static WebDriver driver;
+
+    @BeforeAll
+    public static void init() {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-        WebDriver wd = new ChromeDriver();
-
-        wd.get("http://the-internet.herokuapp.com/iframe");
-        WebElement we = wd.findElement(By.xpath("//iframe"));
-        wd.switchTo().frame(we);
-        WebElement we2 = wd.findElement(By.xpath("//p"));
-        we2.clear();
-        wd.switchTo().defaultContent();
-
+        driver = new ChromeDriver();
+        driver.get("http://the-internet.herokuapp.com/iframe");
     }
 
+    @Test
+    @DisplayName("Chrome start/finish")
+    @Tag("Junior")
+    public void test() {
+        WebElement we = driver.findElement(By.xpath("//iframe"));
+        driver.switchTo().frame(we);
+        WebElement we2 = driver.findElement(By.xpath("//p"));
+        we2.clear();
+        driver.switchTo().defaultContent();
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        driver.quit();
+    }
 }
