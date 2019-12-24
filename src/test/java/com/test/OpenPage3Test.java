@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class OpenPageTest3 {
+public class OpenPage3Test {
     private static WebDriver driver;
     @Test
     public void opener(){
